@@ -37,12 +37,16 @@ class _CuadradoAnimadoState extends State<CuadradoAnimado> with SingleTickerProv
       vsync: this, duration: const Duration(milliseconds: 4000)
     );
 
-    rotacion = Tween(begin: 0.0, end: 2 * Math.pi).animate(
+    rotacion = Tween( begin: 0.0, end: 2 * Math.pi  ).animate(
       CurvedAnimation(parent: controller, curve: Curves.easeOut )
     );
 
-    opacidad = Tween(begin: 0.1, end: 1.0).animate(
-      CurvedAnimation(parent: controller, curve: const Interval(0, 0.25, curve: Curves.easeOut))
+    opacidad = Tween( begin: 0.1, end: 1.0 ).animate(
+      CurvedAnimation(parent: controller, curve: const Interval( 0, 0.25, curve: Curves.easeOut ) )
+    );
+
+    opacidadOut = Tween( begin: 0.0, end: 1.0 ).animate(
+      CurvedAnimation(parent: controller, curve: const Interval( 0.75, 1.0, curve: Curves.easeOut ) )
     );
 
     moverDerecha = Tween(begin: 0.0, end: 200.0).animate(
@@ -51,11 +55,7 @@ class _CuadradoAnimadoState extends State<CuadradoAnimado> with SingleTickerProv
 
     agrandar = Tween(begin: 0.0, end: 2.0).animate(
       CurvedAnimation(parent: controller, curve: Curves.easeOut )
-    );
-
-    opacidadOut = Tween(begin: 0.1, end: 1.0).animate(
-      CurvedAnimation(parent: controller, curve: const Interval(0.75, 1.0, curve: Curves.easeOut))
-    );    
+    ); 
 
     controller.addListener(() {
       if (controller.status == AnimationStatus.completed) {

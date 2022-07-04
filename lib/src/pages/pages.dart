@@ -1,4 +1,5 @@
-export 'package:fl_disenos_app/src/pages/slider_list_page.dart';
+export 'package:fl_disenos_app/src/pages/launcher_page.dart';
+export 'package:fl_disenos_app/src/pages/sliver_list_page.dart';
 export 'package:fl_disenos_app/src/pages/emergency_page.dart';
 export 'package:fl_disenos_app/src/pages/pinterest_page.dart';
 export 'package:fl_disenos_app/src/pages/slideshow_page.dart';
