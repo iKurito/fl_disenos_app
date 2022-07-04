@@ -40,26 +40,34 @@ class _PinterestMenuLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthPantalla = MediaQuery.of(context).size.width;
+    double widthPantalla = MediaQuery.of(context).size.width;
     final mostrar = Provider.of<_MenuModel>(context).mostrar;
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+
+    if (widthPantalla > 500) {
+      widthPantalla = widthPantalla - 300;
+    }
 
     return Positioned(
       bottom: 30,
       child: SizedBox(
         width: widthPantalla,
-        child: Align(
-          child: PinterestMenu(
-            mostrar: mostrar,
-            backgroundColor: appTheme!.scaffoldBackgroundColor,
-            activeColor: appTheme.colorScheme.secondary,
-            items: <PinterestButton> [
-              PinterestButton(icon: Icons.pie_chart, onPressed: () {}),
-              PinterestButton(icon: Icons.search, onPressed: () {}),
-              PinterestButton(icon: Icons.notifications, onPressed: () {}),
-              PinterestButton(icon: Icons.supervised_user_circle, onPressed: () {}),
-            ],
-          ),
+        child: Row(
+          children: [
+            const Spacer(),
+            PinterestMenu(
+              mostrar: mostrar,
+              backgroundColor: appTheme!.scaffoldBackgroundColor,
+              activeColor: appTheme.colorScheme.secondary,
+              items: <PinterestButton> [
+                PinterestButton(icon: Icons.pie_chart, onPressed: () {}),
+                PinterestButton(icon: Icons.search, onPressed: () {}),
+                PinterestButton(icon: Icons.notifications, onPressed: () {}),
+                PinterestButton(icon: Icons.supervised_user_circle, onPressed: () {}),
+              ],
+            ),
+            const Spacer(),
+          ],
         )
       )
     );
@@ -99,18 +107,25 @@ class _PinterestGridState extends State<PinterestGrid> {
   @override
   Widget build(BuildContext context) {
     final List<int> items = List.generate(200, (index) => index);
+    int count;
+    if (MediaQuery.of(context).size.width > 500) {
+      count = 3;
+    } else {
+      count = 2;
+    }
+
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       controller: controller,
       child: SafeArea(
         child: StaggeredGrid.count(
-          crossAxisCount: 4,
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,      
+          crossAxisCount: count,
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 4.0,      
           children: items.map(
             (item) => StaggeredGridTile.count(
-              crossAxisCellCount: 2,
-              mainAxisCellCount: item.isEven ? 2 : 3,          
+              crossAxisCellCount: 1,
+              mainAxisCellCount: item.isEven ? 1 : 2,          
               child: _PinterestItem(index: item)
             )
           ).toList()

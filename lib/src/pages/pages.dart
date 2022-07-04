@@ -1,3 +1,4 @@
+export 'package:fl_disenos_app/src/pages/launcher_tablet_page.dart';
 export 'package:fl_disenos_app/src/pages/launcher_page.dart';
 export 'package:fl_disenos_app/src/pages/sliver_list_page.dart';
 export 'package:fl_disenos_app/src/pages/emergency_page.dart';

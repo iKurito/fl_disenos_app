@@ -72,7 +72,7 @@ class _MainScroll extends StatelessWidget {
       const _ListItem('Books', Color(0xffFCEBAF))  
     ];
 
-    final appTheme = Provider.of<ThemeChanger>(context).currentTheme!;
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
 
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
@@ -90,7 +90,7 @@ class _MainScroll extends StatelessWidget {
             maxheight: 200,
             child: Container(
               alignment: Alignment.centerLeft,
-              color: appTheme.scaffoldBackgroundColor,
+              color: appTheme!.scaffoldBackgroundColor,
               child: const _Titulo()
             )
           ),
