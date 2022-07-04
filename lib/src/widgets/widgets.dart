@@ -1,3 +1,4 @@
+export 'package:fl_disenos_app/src/widgets/boton_gordo.dart';
 export 'package:fl_disenos_app/src/widgets/pinterest_menu.dart';
 export 'package:fl_disenos_app/src/widgets/slideshow.dart';
 export 'package:fl_disenos_app/src/widgets/radial_progress.dart';
